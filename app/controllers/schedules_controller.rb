@@ -6,7 +6,7 @@ class SchedulesController < ApplicationController
   def new
       @schedule = Schedule.new()
   end
-
+  
   def create
       @schedule = Schedule.new(title: params[:title], start: params[:start], finish: params[:finish], memo: params[:memo], all_day: params[:all_day])
 
@@ -21,7 +21,7 @@ class SchedulesController < ApplicationController
 def show
   @schedule = Schedule.find_by(id: params[:id])
   if @schedule.nil?
-    flash[:alert] = "スケジュールが見つかりません"
+  
     redirect_to schedules_path 
   end
 end
@@ -29,7 +29,7 @@ end
 def edit
   @schedule = Schedule.find_by(id: params[:id])
   if @schedule.nil?
-    flash[:alert] = "スケジュールが見つかりません"
+     flash[:alert] = "スケジュールが見つかりません" 
     redirect_to schedules_path
   end
 end
